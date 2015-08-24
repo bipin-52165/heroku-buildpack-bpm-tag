@@ -19,5 +19,5 @@ curl -L --silent $DOWNLOAD_URL | tar xz
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/bpm-tag.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/bpm-tag"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:vendor/bpm-tools-0.3"' >> $PROFILE_PATH
 echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/bpm-tools-0.3"' >> $PROFILE_PATH
