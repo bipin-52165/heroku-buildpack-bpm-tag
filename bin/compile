@@ -7,7 +7,6 @@ indent() {
 echo "-----> Install bpm-tools"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
-TOOL_PATH="bpm-tools-0.3"
 DOWNLOAD_URL="http://www.pogo.org.uk/~mark/bpm-tools/releases/bpm-tools-0.3.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
@@ -16,11 +15,9 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
-cd $TOOL_PATH
-make
-make install PREFIX=/app/vendor/bpm-tools-0.3
+
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/bpm-tag.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/bpm-tools-0.3/bin"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/bpm-tools-0.3/bin"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:vendor/bpm-tools-0.3"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/bpm-tools-0.3"' >> $PROFILE_PATH
