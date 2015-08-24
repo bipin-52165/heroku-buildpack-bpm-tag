@@ -7,6 +7,7 @@ indent() {
 echo "-----> Install bpm-tools"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
+TOOL_PATH="bpm-tools-0.3"
 DOWNLOAD_URL="http://www.pogo.org.uk/~mark/bpm-tools/releases/bpm-tools-0.3.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
@@ -15,6 +16,7 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 curl -L --silent $DOWNLOAD_URL | tar xz
+cd $TOOL_PATH
 make
 make install PREFIX=/app/vendor/bpm-tools
 echo "exporting PATH and LIBRARY_PATH" | indent
