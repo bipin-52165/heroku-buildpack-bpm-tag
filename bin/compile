@@ -7,7 +7,7 @@ indent() {
 echo "-----> Install bpm-tools"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
-DOWNLOAD_URL="http://www.pogo.org.uk/~mark/bpm-tools/releases/bpm-tools-0.3.tar.gz"
+DOWNLOAD_URL="https://github.com/soft-dave/heroku-buildpack-bpm-tag/raw/master/bpm-tools.tar.gz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
@@ -19,5 +19,5 @@ curl -L --silent $DOWNLOAD_URL | tar xz
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/bpm-tag.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/bpm-tools-0.3"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/bpm-tools-0.3"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:vendor/bpm-tools/bin"' >> $PROFILE_PATH
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/bpm-tools/bin"' >> $PROFILE_PATH
